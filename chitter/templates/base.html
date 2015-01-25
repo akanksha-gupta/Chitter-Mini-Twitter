@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<link rel="stylesheet/less" href="{{ STATIC_URL }}style.less">
+    
+<script src="{{ STATIC_URL }}less.js">
+</script>
+
+</head>
+
+
+<body>
+    
+<header>
+        
+<div class="wrapper">
+           
+ <img src="{{ STATIC_URL }}images/logo.png">
+            
+<span>Mini Twitter</span>
+
+            
+{% block login %}
+            
+<a href="/">Home</a>
+            
+<a href="/users/">Public Profiles</a>
+            
+<a href="/users/{{ username }}">My Profile</a>
+           
+ <a href="/chitters">Public chitters</a>
+            
+<form action="/logout">
+                
+<input type="submit" id="btnLogOut" value="Log Out">
+           
+</form>
+            
+{% endblock %}
+        
+
+</div>
+    
+</header>
+    
+<div id="content">
+        
+<div class="wrapper">
+            
+{% block flash %}
+            
+{% if auth_form.non_field_errors or user_form.non_field_errors or chitter_form.errors %}
+            
+<div class="flash error">
+                
+{{ auth_form.non_field_errors }}
+                
+{{ user_form.non_field_errors }}
+                
+{{ chitter_form.content.errors }}
+            
+</div>
+            
+{% endif %}
+            
+
+{% if notice %}
+            
+<div class="flash notice">
+                
+{{ notice }}
+            
+</div>
+            
+{% endif %}
+            
+{% endblock %}
+
+    
+        
+{% block content %}
+
+           
+{% endblock %}
+       
+</div>
+    
+</div>
+    
+
+<footer>
+        
+<div class="wrapper">
+            
+Chitter - An Evaluation Assignment          
+<a href="http://www.housing.com">
+                
+<img src="{{ STATIC_URL }}images/logo-nettuts.png">
+            
+</a>
+            
+</div>
+    
+</footer>
+
+</body>
+
+</html>

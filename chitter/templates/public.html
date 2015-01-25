@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+    
+<div class="panel right">
+        
+<h1>Post your chitter Chatter...</h1>
+        
+<p>
+            
+<form action="/submit" method="post">
+            
+{% for field in chitter_form %}{% csrf_token %}
+            
+{{ field }}
+            
+{% endfor %}
+            
+<input type="hidden" value="{{ next_url }}" name="next_url">
+            
+<input type="submit" value="chitter!">
+            
+</form>
+        
+</p>
+    
+</div>
+    
+<div class="panel left">
+        
+<h1>Public chitters</h1>
+        
+{% for chitter in chitters %}
+        
+<div class="chitterWrapper">
+            
+<img class="avatar" src="{{ chitter.user.profile.gravatar_url }}">
+            
+<span class="name">{{ chitter.user.first_name }}</span>
+@{{ chitter.user.username }}
+            
+<span class="time">{{ chitter.creation_date|timesince }}</span>
+            
+<p>{{ chitter.content }}</p>
+        
+</div>
+        
+{% endfor %}
+    
+</div>
+
+{% endblock %}
