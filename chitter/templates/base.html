@@ -20,19 +20,15 @@
            
  <img src="{{ STATIC_URL }}images/logo.png">
             
-<span>Mini Twitter</span>
-
             
 {% block login %}
+                       
+<a href="/chitters">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Buddies Corner</a>
+
+<a href="/users/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Public Profiles</a>
             
-<a href="/">Home</a>
-            
-<a href="/users/">Public Profiles</a>
-            
-<a href="/users/{{ username }}">My Profile</a>
-           
- <a href="/chitters">Public chitters</a>
-            
+<a href="/users/{{ username }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; My Profile</a>
+                        
 <form action="/logout">
                 
 <input type="submit" id="btnLogOut" value="Log Out">
@@ -98,7 +94,7 @@
 Chitter - An Evaluation Assignment          
 <a href="http://www.housing.com">
                 
-<img src="{{ STATIC_URL }}images/logo-nettuts.png">
+<img src="{{ STATIC_URL }}images/logo_housing.png">
             
 </a>
             
